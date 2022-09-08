@@ -1,8 +1,7 @@
 import '../css/styles.css';
-import photoCardTmpl from '../templates/photoCard.hbs';
+import photoCardTpl from '../templates/photoCard.hbs';
 import PhotosApiService from './apiService';
 
-const photosApiService = new PhotosApiService();
 
 const formEl = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
@@ -11,23 +10,26 @@ const loadMoreBtn = document.querySelector('.button');
 formEl.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
 
-let input = '';
+const photosApiService = new PhotosApiService();
 
 function onSearch(event) {
   event.preventDefault();
 
+  clearPhotoesContainer();
   photosApiService.query = event.currentTarget.elements.query.value;
-
-  photosApiService.fetchPhotos()
-
-  formEl.reset();
-}
-
-function renderPhotoGallery(photo) {
-  const markup = photoCardTmpl(photo);
-  galleryEl.innerHTML = markup;
+  photosApiService.resetPage();
+  photosApiService.fetchPhotos().then(renderPhotosGallery);
 }
 
 function onLoadMore() {
-  photosApiService.fetchPhotos();
+  photosApiService.fetchPhotos().then(renderPhotosGallery);
+}
+
+function renderPhotosGallery(photo) {
+  const markup = photoCardTpl(photo);
+  galleryEl.insertAdjacentHTML('beforeend', markup);
+}
+
+function clearPhotoesContainer() {
+  galleryEl.innerHTML = '';
 }
