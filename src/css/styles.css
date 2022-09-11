@@ -1,20 +1,48 @@
 body {
   font-family: sans-serif;
   max-width: 1440px;
+  padding-top: 90px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-form {
-  margin-top: 40px;
+/* Form styles */
+
+.search-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: white;
   text-align: center;
 }
 
+.form-input,
+.form-button {
+  padding: 10px 12px;
+  border: 2px solid rgb(104, 175, 255);
+  border-radius: 5px;
+}
+.form-input {
+  margin-right: 10px;
+  width: 200px;
+  outline: none;
+}
+
+.form-button {
+  color: white;
+  background-color: rgb(104, 175, 255);
+  cursor: pointer;
+}
+
+
 .gallery {
-  margin-top: 40px;
   margin-bottom: 40px;
+  margin-top: 0;
   padding: 20px 0 20px 0;
   display: flex;
   flex-wrap: wrap;
