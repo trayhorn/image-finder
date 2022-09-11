@@ -29,6 +29,7 @@ function onLoadMore() {
 
 function renderPhotosGallery(photo) {
   const markup = photoCardTpl(photo);
+  galleryEl.classList.add('is-active');
   galleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
