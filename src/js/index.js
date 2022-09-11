@@ -5,7 +5,8 @@ import PhotosApiService from './apiService';
 
 const formEl = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
-const loadMoreBtn = document.querySelector('.button');
+const loadMoreBtn = document.querySelector('.load-button');
+
 
 formEl.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
@@ -23,6 +24,7 @@ function onSearch(event) {
 
 function onLoadMore() {
   photosApiService.fetchPhotos().then(renderPhotosGallery);
+  loadMoreBtn.scrollIntoView({block: "end", behavior: "smooth"});
 }
 
 function renderPhotosGallery(photo) {
