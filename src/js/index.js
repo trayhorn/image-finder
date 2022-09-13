@@ -8,6 +8,9 @@ const galleryEl = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-button');
 
 
+
+
+
 formEl.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
 
@@ -24,13 +27,14 @@ function onSearch(event) {
 
 function onLoadMore() {
   photosApiService.fetchPhotos().then(renderPhotosGallery);
-  loadMoreBtn.scrollIntoView({block: "end", behavior: "smooth"});
+  // loadMoreBtn.scrollIntoView({block: "end", behavior: "smooth"});
 }
 
 function renderPhotosGallery(photo) {
   const markup = photoCardTpl(photo);
   galleryEl.classList.add('is-active');
   galleryEl.insertAdjacentHTML('beforeend', markup);
+  loadMoreBtn.classList.add('is-visible');
 }
 
 function clearPhotoesContainer() {
