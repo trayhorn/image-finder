@@ -21,13 +21,13 @@ body {
 
 .form-input,
 .form-button {
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 2px solid rgb(104, 175, 255);
   border-radius: 5px;
 }
 .form-input {
   margin-right: 10px;
-  width: 200px;
+  width: 220px;
   outline: none;
 }
 
@@ -47,8 +47,11 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.is-active {
+.gallery.light {
   background-color: aqua;
+}
+.gallery.dark {
+  background-color: #000000;
 }
 
 .stats {
@@ -107,3 +110,130 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
+
+/* toggle */
+
+.toggle {
+  position: absolute;
+  top: 32px;
+  right: 60px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+  background: #56c080;
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+
+
+
+/* .theme-switch__control {
+  position: absolute;
+  top: 32px;
+  right: 60px;
+  width: 64px;
+  height: 32px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: #333;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms linear;
+}
+
+.theme-switch__toggle:checked+.theme-switch__track {
+  background-color: #d3d3d4;
+}
+
+.theme-switch__toggle:checked~.theme-switch__marker {
+  transform: translateX(35px);
+}
+
+.theme-switch__toggle:focus+.theme-switch__track,
+.theme-switch__toggle:active+.theme-switch__track {
+  box-shadow: 0 0 0 3px #2196f3;
+} */
