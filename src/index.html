@@ -23,22 +23,6 @@
       <div class="toggle-switch"></div>
       <span class="toggle-label">Dark theme</span>
     </label>
-    <!-- <div class="theme-switch__control">
-      <input
-        class="theme-switch__toggle"
-        type="checkbox"
-        name="theme"
-        id="theme-switch-toggle"
-        aria-label="Переключить между тёмной и светлой темой"
-      />
-      <label
-        aria-hidden="true"
-        class="theme-switch__track"
-        for="theme-switch-toggle"
-      >
-      </label>
-      <div aria-hidden="true" class="theme-switch__marker"></div>
-    </div> -->
   </form>
   <ul class="gallery">
   </ul>
@@ -46,6 +30,17 @@
     <button class="load-button" type="button">
       Load more
     </button>
+  </div>
+  <!--Модальное окно для полноразмерного изображения-->
+
+  <div class="lightbox js-lightbox">
+    <div class="lightbox__overlay"></div>
+
+    <div class="lightbox__content">
+      <img class="lightbox__image" src="" alt="" />
+    </div>
+
+    <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
   </div>
   <script src="./js/index.js"></script>
 </body>
