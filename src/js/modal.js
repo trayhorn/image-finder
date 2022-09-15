@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const galleryEl = document.querySelector('.gallery');
 const bodyEl = document.body;
@@ -12,10 +13,12 @@ function openModalOnClick(e) {
   if (!e.target.classList.contains('photo-card-img')) {
     return;
   }
+  Loading.circle();
   modalEl.classList.add('is-open');
   bodyEl.classList.add('is-hidden');
   importOriginalImage(e)
   e.preventDefault();
+  Loading.remove();
 };
 
 function closeModalOnClick(event) {

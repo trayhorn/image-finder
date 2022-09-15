@@ -16,6 +16,15 @@ export default class PhotosApiService {
       });
   }
 
+  fetchTotal() {
+    const url =
+    `https://pixabay.com/api/?q=${this.searchQuery}&image_type=photo&orientation=horizontal&min_height=430&page=${this.page}&per_page=16&key=29734383-6ec437d7a0c5df52cef54a0f9`;
+
+    return fetch(url)
+      .then(r => r.json())
+      .then(({ total }) => total);
+  }
+
   resetPage() {
     this.page = 1;
   }
